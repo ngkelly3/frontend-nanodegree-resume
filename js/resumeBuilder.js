@@ -11,7 +11,7 @@ var bio = {
 		"twitter": "@thisiskellywing",
 		"location": "Calgary"
 	},
-	"welcomeMessage": "Welcome to my website!",
+	"welcomeMessage": "Welcome to my website!  Please enjoy your stay, you wily dog, you!",
 	"skills": skills,
 	"biopic": "images/fry.jpg",
 	"display": function() {
@@ -35,24 +35,12 @@ var bio = {
 		$("#header").append(formattedwelcomeMsg);
 		$("#topContacts").append(formattedContacts);
 
-		for
-
-		/*
-		if (skills.length != 0) {
-			$("#header").append(HTMLskillsStart);
-
-			var formattedSkill = HTMLskills.replace("%data%",bio.skills[0]);
+		//display skills
+		$("#header").append(HTMLskillsStart);
+		for (skill in bio.skills) {
+			var formattedSkill = HTMLskills.replace("%data%",bio.skills[skill]);
 			$("#header").append(formattedSkill);
-
-			formattedSkill = HTMLskills.replace("%data%",bio.skills[1]);
-			$("#header").append(formattedSkill);
-
-			formattedSkill = HTMLskills.replace("%data%",bio.skills[2]);
-			$("#header").append(formattedSkill);
-
-			formattedSkill = HTMLskills.replace("%data%",bio.skills[3]);
-			$("#header").append(formattedSkill);
-		};*/
+		};
 	}
 };
 
@@ -80,7 +68,37 @@ var education = {
 		"date": "January 2016 - Present",
 		"url": "https://www.coursera.org/learn/machine-learning/"
 	}
-	]
+	],
+	"display": function() {
+		$("#education").append(HTMLschoolStart);
+
+		//display education
+		for (school in education.schools) {
+			var formattedschoolName = HTMLschoolName.replace("%data%",education.schools[school].name);
+			var formattedschoolLocation = HTMLschoolLocation.replace("%data%",education.schools[school].location);
+			var formattedschoolDegree = HTMLschoolDegree.replace("%data%",education.schools[school].degree);
+			for (major in education.schools[school].majors) {
+				var formattedschoolMajors = HTMLschoolMajor.replace("%data%",education.schools[school].majors[major]);
+			};
+			var formattedschoolDates = HTMLschoolDates.replace("%data%",education.schools[school].dates);
+			var formattedschoolURL = HTMLonlineURL.replace("%data%",education.schools[school].url);
+			var formattedschoolEntry =
+				formattedschoolName + formattedschoolLocation + formattedschoolDegree + formattedschoolDates + formattedschoolMajors + formattedschoolURL;
+			$(".education-entry:last").prepend(formattedschoolEntry);
+		};
+
+		//display online courses
+		$(".education-entry:last").append(HTMLonlineClasses);
+		for (onlineCourse in education.onlineCourses) {
+			var formattedonlineTitle = HTMLonlineTitle.replace("%data%",education.onlineCourses[onlineCourse].title);
+			var formattedonlineSchool = HTMLonlineSchool.replace("%data%",education.onlineCourses[onlineCourse].school);
+			var formattedonlineDates = HTMLonlineDates.replace("%data%",education.onlineCourses[onlineCourse].date);
+			var formattedonlineURL = HTMLonlineURL.replace("%data%",education.onlineCourses[onlineCourse].url);
+
+			var formattedonlineCourse = formattedonlineTitle + formattedonlineSchool + formattedonlineDates + formattedonlineURL;
+			$(".education-entry:last").append(formattedonlineCourse);
+		};
+	}
 };
 
 //Need better work descriptions, as well as links to every job you've done
@@ -148,10 +166,9 @@ var projects = {
 };
 
 bio.display();
+education.display();
 work.display();
 projects.display();
-
-
 
 $("#main").append(internationalizeButton);
 
