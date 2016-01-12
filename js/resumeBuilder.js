@@ -81,10 +81,14 @@ var education = {
 				var formattedschoolMajors = HTMLschoolMajor.replace("%data%",education.schools[school].majors[major]);
 			};
 			var formattedschoolDates = HTMLschoolDates.replace("%data%",education.schools[school].dates);
-			var formattedschoolURL = HTMLonlineURL.replace("%data%",education.schools[school].url);
+
+			//school URLs - can we combine this into one?
+			var formattedschoolURL = HTMLonlineURL.replace("#",education.schools[school].url);
+			formattedschoolURL = formattedschoolURL.replace("%data%",education.schools[school].url);
+
 			var formattedschoolEntry =
 				formattedschoolName + formattedschoolLocation + formattedschoolDegree + formattedschoolDates + formattedschoolMajors + formattedschoolURL;
-			$(".education-entry:last").prepend(formattedschoolEntry);
+			$(".education-entry:last").append(formattedschoolEntry);
 		};
 
 		//display online courses
@@ -93,7 +97,9 @@ var education = {
 			var formattedonlineTitle = HTMLonlineTitle.replace("%data%",education.onlineCourses[onlineCourse].title);
 			var formattedonlineSchool = HTMLonlineSchool.replace("%data%",education.onlineCourses[onlineCourse].school);
 			var formattedonlineDates = HTMLonlineDates.replace("%data%",education.onlineCourses[onlineCourse].date);
+
 			var formattedonlineURL = HTMLonlineURL.replace("%data%",education.onlineCourses[onlineCourse].url);
+			formattedonlineURL = formattedonlineURL.replace("#",education.onlineCourses[onlineCourse].url);
 
 			var formattedonlineCourse = formattedonlineTitle + formattedonlineSchool + formattedonlineDates + formattedonlineURL;
 			$(".education-entry:last").append(formattedonlineCourse);
