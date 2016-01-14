@@ -31,15 +31,16 @@ var bio = {
 		//display bio on page
 		$("#header").prepend(formattedRole);
 		$("#header").prepend(formattedName);
-		$("#header").append(formattedBiopic);
 		$("#header").append(formattedwelcomeMsg);
+		$("#biopic").append(formattedBiopic);
 		$("#topContacts").append(formattedContacts);
+		$("#footerContacts").append(formattedContacts);
 
 		//display skills
-		$("#header").append(HTMLskillsStart);
+		$("#skills").append(HTMLskillsStart);
 		for (skill in bio.skills) {
 			var formattedSkill = HTMLskills.replace("%data%",bio.skills[skill]);
-			$("#header").append(formattedSkill);
+			$("#skills").append(formattedSkill);
 		};
 	}
 };
@@ -187,3 +188,16 @@ function inName(name) {
 };*/
 
 $("#mapDiv").append(googleMap);
+
+//Example of modal code working.  Make sure it's in the "display" object function... or wherever appropriate
+$("#workExperienceBtn").click(function(){
+	$("#myModal1").modal('show');
+});
+
+$("#projectsBtn").click(function(){
+	$("#myModal2").modal('show');
+});
+
+$("#educationBtn").click(function(){
+	$("#myModal3").modal('show');
+});
