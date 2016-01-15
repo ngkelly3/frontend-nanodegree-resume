@@ -11,9 +11,9 @@ var bio = {
 		"twitter": "@thisiskellywing",
 		"location": "Calgary"
 	},
-	"welcomeMessage": "Welcome to my website!  Please enjoy your stay, you wily dog, you!",
+	"welcomeMessage": "Welcome to my website!  Enjoy your stay.",
 	"skills": skills,
-	"biopic": "images/fry.jpg",
+	"biopic": "images/cute-cat.jpg",
 	"display": function() {
 		var formattedName = HTMLheaderName.replace("%data%", bio.name);
 		var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
@@ -49,7 +49,7 @@ var education = {
 	"schools": [
 	{
 		"name": "University of British Columbia",
-		"location": "Vancouver, British Columbia, Canada",
+		"location": "Vancouver",
 		"degree": "Bachelor of Applied Science, Minor in Commerce",
 		"majors": ["Mechanical Engineering"],
 		"dates": "September 2005 - May 2010",
@@ -68,6 +68,18 @@ var education = {
 		"school": "Coursera (course by Stanford University)",
 		"date": "January 2016 - Present",
 		"url": "https://www.coursera.org/learn/machine-learning/"
+	},
+	{
+		"title": "Make a Website, JavaScript, jQuery, Ruby",
+		"school": "Code Academy",
+		"date": "August 2015 - October 2015",
+		"url": "https://www.codecademy.com/learn/"
+	},
+	{
+		"title": "The Story Intensive",
+		"school": "Story is a State of Mind (Sarah Selecky Writing Blog)",
+		"date": "September 2015 - January 2016",
+		"url": "http://www.sarahselecky.com/story-intensive/"
 	}
 	],
 	"display": function() {
@@ -87,8 +99,7 @@ var education = {
 			var formattedschoolURL = HTMLonlineURL.replace("#",education.schools[school].url);
 			formattedschoolURL = formattedschoolURL.replace("%data%",education.schools[school].url);
 
-			var formattedschoolEntry =
-				formattedschoolName + formattedschoolLocation + formattedschoolDegree + formattedschoolDates + formattedschoolMajors + formattedschoolURL;
+			var formattedschoolEntry = formattedschoolName + formattedschoolLocation + formattedschoolDegree + formattedschoolDates + formattedschoolMajors + formattedschoolURL;
 			$(".education-entry:last").append(formattedschoolEntry);
 		};
 
@@ -116,14 +127,14 @@ var work = {
 		"title": "Static Equipment Engineer",
 		"location": "Fort McMurray",
 		"dates": "July 2014 - September 2015",
-		"description": "Pressure Equipment Specialist"
+		"description": "I monitored the integrity and performance of pressure vessels on the Shell Albian Sands froth unit for most days.  On other days, I would walk up the 800 steps of the tallest structure and contemplate life beyond fossil fuels while staring out into the tar sands abyss."
 	},
 	{
 		"employer": "Shell Canada Energy",
 		"title": "Operations Engineer",
 		"location": "Waterton",
 		"dates": "October 2011 - July 2014",
-		"description": "Process Engineer for Deep Cut Unit"
+		"description": "Even though I studied to be a mechanical engineer, I was hired as a process engineer (as you do).  On the first day of work, I made it very clear to my superiors that I was an inferior candidate for the position.  My superiors told me that they simply needed a bum in the seat.  So that's what I was: a mechanical engineer faking his way as a process engineer.  It worked out well, but by the end of this position, I began to question how I could contribute to the world more effectively by leveraging my strengths (whatever they were)."
 	}
 	],
 	"display": function() {
@@ -146,16 +157,16 @@ var work = {
 var projects = {
 	"projects": [
 	{
-		"title": "Project P1 - Online Resume (Udacity)",
-		"dates": "November 2015",
-		"description": "Built online resume using HTML, CSS and JS.",
-		"images": "no image yet"
+		"title": "Project P1/P2 - Online Resume (Udacity)",
+		"dates": "November 2015/January 2016",
+		"description": "Built a simple online resume using HTML, CSS and JS and powered by the Bootstrap framework.",
+		"images": "No image yet!"
 	},
 	{
 		"title": "Home Automation System",
 		"dates": "January 2016 - Present",
-		"description": "Created a home automation system that does a bunch of shit that Mark Zuckerberg challenged himself to do as well.",
-		"images": "no image yet"
+		"description": "Inspired by Mark Zuckerberg's AI challenge for 2016, I hope to create a simple AI system at home that can respond to voice commands to control things like music, lights and temperature (goals subject to change).",
+		"images": "images/proj-item2.png"
 	}
 	],
 	"display": function() {
@@ -164,7 +175,7 @@ var projects = {
 			var formattedprojectTitle = HTMLprojectTitle.replace("%data%",projects.projects[project].title);
 			var formattedprojectdates = HTMLprojectDates.replace("%data%",projects.projects[project].dates);
 			var formattedprojectdescription = HTMLprojectDescription.replace("%data%",projects.projects[project].description);
-			var formattedprojectimages = HTMLprojectTitle.replace("%data%",projects.projects[project].images);
+			var formattedprojectimages = HTMLprojectImage.replace("%data%",projects.projects[project].images);
 
 			formattedprojectentry = formattedprojectTitle + formattedprojectdates + formattedprojectdescription + formattedprojectimages;
 			$(".project-entry:last").append(formattedprojectentry);
@@ -172,6 +183,30 @@ var projects = {
 	}
 };
 
+var navbar = {
+	"image": "images/favicon-inverted.ico",
+	"brand": "Kelly Website",
+	"linkActive": "Home",
+	"link": ["About","Blog","Contact"],
+	"display": function() {
+		$("#navbarHTML").append(HTMLnavbarStart);
+
+		//objects for the two things below
+		var formattednavbarBrand = HTMLnavbarBrand.replace("%image%",navbar.image);
+		formattednavbarBrand = formattednavbarBrand.replace("%data%",navbar.brand);
+		$(".navbar-brand").append(formattednavbarBrand);
+
+		var formattednavbarLinkActive = HTMLnavbarLinkActive.replace("%data%",navbar.linkActive);
+		$("#navbarLink").append(formattednavbarLinkActive);
+
+		for (link in navbar.link) {
+			var formattednavbarLink = HTMLnavbarLink.replace("%data%",navbar.link[link]);
+			$("#navbarLink").append(formattednavbarLink);
+		};
+	}
+};
+
+navbar.display();
 bio.display();
 education.display();
 work.display();
@@ -179,13 +214,7 @@ projects.display();
 
 $("#main").append(internationalizeButton);
 
-/*the code below is optional
-function inName(name) {
-	var name = name.trim();
-	var nameArray = name.split(" ");
 
-	return nameArray[0].slice(0,1).toUpperCase() + nameArray[0].slice(1).toLowerCase() + " " + nameArray[1].toUpperCase();
-};*/
 
 $("#mapDiv").append(googleMap);
 
