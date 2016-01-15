@@ -1,122 +1,63 @@
 <!DOCTYPE html>
-
-<!--
-This is an HTML document. It contains information about how elements in the website
-are arranged. In other words, it describes the layout of a website.
--->
-
-<!--
-The <head> of a website generally links to important resources the page will
-need to load. You'll see a lot of <link>s to CSS files for styles and
-<scripts> for JavaScript files to build interactions.
--->
 <head>
   <!-- This tells the browser how to read the document. -->
   <meta charset="utf-8">
-
   <!-- Tells the browser what the title of this page should be. -->
   <title>Resume</title>
-
   <!-- Load favicon. -->
   <link rel="shortcut icon" href="images/favicon.ico">
-
   <!-- Load the page styles. -->
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/style.css">
-  <link href='https://fonts.googleapis.com/css?family=Oxygen|Montserrat|Lobster+Two' rel='stylesheet' type='text/css'>
-  <!--
-  jQuery is a common JavaScript library for reading and making changes to the
-  Document Object Model (DOM). The DOM is a tree that contains information
-  about what is actually visible on a website.
-
-  While HTML is a static document, the browser converts HTML to the
-  DOM and the DOM can change. In fact, JavaScript's power comes from
-  its ability to manipulate the DOM, which is essentially a JavaScript
-  object. When JavaScript makes something interesting happen on a
-  website, it's likely the action happened because JavaScript changed
-  the DOM. jQuery is fast and easy to use, but it doesn't do anything
-  you can't accomplish with vanilla (regular) JavaScript.
-  -->
+  <link href='https://fonts.googleapis.com/css?family=Oxygen%7CMontserrat%7CLobster+Two' rel='stylesheet' type='text/css'>
+  <!-- Load jQuery -->
   <script src="js/jQuery.js"></script>
-
-
-  <!-- More on helper.js in the class -->
   <script src="js/helper.js"></script>
-
   <!-- initialize bootstrap.js -->
   <script src="js/bootstrap.min.js"></script>
-
-  <!--
-  Uncomment the <script> tag below when you're ready to add an interactive
-  Google Map to your resume!
-  -->
+  <!-- Interactive Google Map -->
   <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
-
   <meta name="viewport" content="width=device-width">
 </head>
 <body>
-
-    <!--
-    Everything from here to the <script> tag below is the skeleton of your
-    website. Your code will add information to each of the sections of the
-    resume below. You can pretty easily figure out what each section will
-    display by looking at the id or at what's written between the <h2> tags.
-    -->
-
   <div class="container" id="main">
-
     <!-- Bootstrap Navbar code -->
     <header class="row">
       <div id="navbarHTML" class="col-md-12"></div>
     </header>
-
-
     <div id="header" class="text-center">
       <ul id="topContacts" class="list-inline"></ul>
     </div>
     <div id="skills" class="col-md-12 text-center list-inline"></div>
     <div id="biopic" class="col-md-12"></div>
     <div style="clear: both;"></div>
-
+    <!-- horizontal rule -->
     <div class="row hr"></div>
-
     <!-- modal section -->
-    <section class="row text-center" id="modalcode"></section>
-
+    <section class="row text-center" id="modalcode">
+      <h2>A Little Bit About Me...</h2>
+    </section>
     <div class="row hr"></div>
-
-    <!-- map and footer code -->
-    <div id="mapDiv" class="col-md-12">
+    <div id="mapDiv" class="col-md-12 text-center">
       <h2>Where I've Lived and Worked</h2>
     </div>
-
     <div class="row hr"></div>
-
-    <!-- footer code -->
     <footer id="lets-connect" class="col-md-12 text-center">
       <h3>Let's Connect!</h3>
         <ul id="footerContacts" class="list-inline">
       </ul>
     </footer>
   </div>
-
-  <!--
-  The next line tells the browser where to download the JavaScript file you'll be
-  writing. In resumeBuilder.js, you'll be writing code that builds the resume
-  dynamically when this website, index.html, is opened.-->
-
+  <!--Linking to JS file -->
   <script src="js/resumeBuilder.js"></script>
-
-  <!--
-  Checking to see if you have not changed each section of the resume
-  -->
-
+  <!-- Checking to see if you have not changed each section of the resume -->
   <script type="text/javascript">
-
-    if(document.getElementsByClassName('navbar-brand').length === 0) {
+    if(document.getElementById('navbarHTML').length === null) {
       document.getElementById('navbarHTML').style.display = 'none';
     }
-
+    if(document.getElementById('modalcode').length === null) {
+      document.getElementById('navbarHTML').style.display = 'none';
+    }
     if(document.getElementsByClassName('flex-item').length === 0) {
       document.getElementById('topContacts').style.display = 'none';
     }

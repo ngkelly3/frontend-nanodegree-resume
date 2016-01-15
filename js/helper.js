@@ -1,24 +1,8 @@
-/*
-
-This file contains all of the code running in the background that makes resumeBuilder.js possible. We call these helper functions because they support your code in this course.
-
-Don't worry, you'll learn what's going on in this file throughout the course. You won't need to make any changes to it until you start experimenting with inserting a Google Map in Problem Set 3.
-
-Cameron Pittman
-*/
-
-
-/*
-These are HTML strings. As part of the course, you'll be using JavaScript functions
-replace the %data% placeholder text you see in them.
-*/
 var HTMLheaderName = '<h1 id="name">%data%</h1>';
 var HTMLheaderRole = '<span>%data%</span><hr>';
 
-/*Navbar helper.js code - custom - append to ID navbarHTML*/
+/*Bootstrap navbar helper.js code*/
 var HTMLnavbarStart = '<nav class="navbar navbar-inverse navbar-fixed-top"><div class="container-fluid"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="#"></a></div><div class="collapse navbar-collapse" id="myNavbar"><ul id="navbarLink" class="nav navbar-nav navbar-right"></ul></div></div></nav>'
-
-/*Append this CONTENT to CLASS navbar-brand:*/
 var HTMLnavbarBrand = '<span><img class="logo" src=%image% alt="website logo"></span>%data%'
 var HTMLnavbarLinkActive = '<li class="active"><a href="#">%data%</a></li>'
 var HTMLnavbarLink = '<li><a href="#">%data%</a></li>'
@@ -48,7 +32,7 @@ var HTMLprojectStart = '<div class="project-entry"></div>';
 var HTMLprojectTitle = '<h4>%data%</h4>';
 var HTMLprojectDates = '<div class="date-text">%data%</div>';
 var HTMLprojectDescription = '<p><br>%data%</p>';
-var HTMLprojectImage = '<img class="center-block" src="%data%">';
+var HTMLprojectImage = '<img class="center-block img-responsive" src="%data%">';
 
 var HTMLschoolStart = '<div class="education-entry"></div>';
 var HTMLschoolName = '<h4>%data%';
@@ -71,7 +55,6 @@ var HTMLmodalImage = '<img src=%data% alt="profile-item" class="img-responsive c
 var HTMLmodalTitle = '<h4>%data%</h4>'
 
 /*Modal implementation - HTML markup side*/
-//modify id and aria-labelledby
 var HTMLmodalMarkupStart1 = '<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"><div class="modal-dialog" role="document"><div class="modal-content" id="mymodal-content1"><div class="modal-header" id="myModalHeader1"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div></div></div></div>'
 var HTMLmodalMarkupStart2 = '<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2"><div class="modal-dialog" role="document"><div class="modal-content" id="mymodal-content2"><div class="modal-header" id = "myModalHeader2"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div></div></div></div>'
 var HTMLmodalMarkupStart3 = '<div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3"><div class="modal-dialog" role="document"><div class="modal-content" id="mymodal-content3"><div class="modal-header" id="myModalHeader3"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div></div></div></div>'
@@ -83,19 +66,15 @@ var HTMLmodalMarkupTitle = '<h3 class="modal-title" id=%id%>%data%</h3>'
 var HTMLmodalMarkupBody = '<div id=%data% class="modal-body"></div>'
 var HTMLmodalMarkupFooter = '<div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div>'
 
-//horizontal rule code
+//internationalize code
 var HTMLaddHr = '<div class="col-md-12"><hr></div>'
-
 var internationalizeButton = '<button>Internationalize</button>';
 var googleMap = '<div id="map"></div>';
 
-/*
-The International Name challenge in Lesson 2 where you'll create a function that will need this helper code to run. Don't delete! It hooks up your code to the button you'll be appending.
-*/
+/*International Name*/
 function inName(name) {
   var name = name.trim();
   var nameArray = name.split(" ");
-
   return nameArray[0].slice(0,1).toUpperCase() + nameArray[0].slice(1).toLowerCase() + " " + nameArray[1].toUpperCase();
 };
 
@@ -124,11 +103,8 @@ function logClicks(x,y) {
 $(document).click(function(loc) {
   var x = loc.pageX;
   var y = loc.pageY;
-
   logClicks(x,y);
 });
-
-
 
 /*
 This is the fun part. Here's where we generate the custom Google Map for the website.
@@ -136,7 +112,6 @@ See the documentation below for more details.
 https://developers.google.com/maps/documentation/javascript/reference
 */
 var map;    // declares a global map variable
-
 
 /*
 Start here! initializeMap() is called when page is loaded.
@@ -217,6 +192,11 @@ function initializeMap() {
     // hmmmm, I wonder what this is about...
     google.maps.event.addListener(marker, 'click', function() {
       infoWindow.open(map, marker);
+    });
+
+    // close infoWindow with click on map
+    google.maps.event.addListener(map, 'click', function() {
+      infoWindow.close();
     });
 
     // this is where the pin actually gets added to the map.
