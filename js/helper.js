@@ -15,9 +15,6 @@ replace the %data% placeholder text you see in them.
 var HTMLheaderName = '<h1 id="name">%data%</h1>';
 var HTMLheaderRole = '<span>%data%</span><hr>';
 
-
-
-
 /*Navbar helper.js code - custom - append to ID navbarHTML*/
 var HTMLnavbarStart = '<nav class="navbar navbar-inverse navbar-fixed-top"><div class="container-fluid"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="#"></a></div><div class="collapse navbar-collapse" id="myNavbar"><ul id="navbarLink" class="nav navbar-nav navbar-right"></ul></div></div></nav>'
 
@@ -66,9 +63,32 @@ var HTMLonlineSchool = ' - %data%</h4>';
 var HTMLonlineDates = '<div class="date-text">%data%</div>';
 var HTMLonlineURL = '<p><br><a href="#">%data%</a></p>';
 
+/*Modal implementation - HTML structure side*/
+var HTMLmodalworkExperienceStart = '<div class="col-md-4 col-sm-6" id="workExperienceBtn"></div>'
+var HTMLmodalprojectStart = '<div class="col-md-4 col-sm-6" id="projectsBtn"></div>'
+var HTMLmodaleducationStart = '<div class="col-md-4 col-sm-6" id="educationBtn"></div>'
+var HTMLmodalImage = '<img src=%data% alt="profile-item" class="img-responsive center-block">'
+var HTMLmodalTitle = '<h4>%data%</h4>'
+
+/*Modal implementation - HTML markup side*/
+//modify id and aria-labelledby
+var HTMLmodalMarkupStart1 = '<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"><div class="modal-dialog" role="document"><div class="modal-content" id="mymodal-content1"><div class="modal-header" id="myModalHeader1"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div></div></div></div>'
+var HTMLmodalMarkupStart2 = '<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2"><div class="modal-dialog" role="document"><div class="modal-content" id="mymodal-content2"><div class="modal-header" id = "myModalHeader2"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div></div></div></div>'
+var HTMLmodalMarkupStart3 = '<div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3"><div class="modal-dialog" role="document"><div class="modal-content" id="mymodal-content3"><div class="modal-header" id="myModalHeader3"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div></div></div></div>'
+
+//append the line below to class "myModalHeader1"
+var HTMLmodalMarkupTitle = '<h3 class="modal-title" id=%id%>%data%</h3>'
+
+//append the line below to class "mymodal-content"
+var HTMLmodalMarkupBody = '<div id=%data% class="modal-body"></div>'
+var HTMLmodalMarkupFooter = '<div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div>'
+
+//horizontal rule code
+var HTMLaddHr = '<div class="col-md-12"><hr></div>'
+
+
 var internationalizeButton = '<button>Internationalize</button>';
 var googleMap = '<div id="map"></div>';
-
 
 /*
 The International Name challenge in Lesson 2 where you'll create a function that will need this helper code to run. Don't delete! It hooks up your code to the button you'll be appending.

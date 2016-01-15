@@ -1,6 +1,3 @@
-var skills =
-	["HTML", "CSS", "Javascript", "Octave", "Matlab"];
-
 var bio = {
 	"name": "Kelly Ng",
 	"role": "Web Developer",
@@ -12,7 +9,7 @@ var bio = {
 		"location": "Calgary"
 	},
 	"welcomeMessage": "Welcome to my website!  Enjoy your stay.",
-	"skills": skills,
+	"skills": ["HTML", "CSS", "Javascript", "Octave", "Matlab"],
 	"biopic": "images/cute-cat.jpg",
 	"display": function() {
 		var formattedName = HTMLheaderName.replace("%data%", bio.name);
@@ -206,15 +203,77 @@ var navbar = {
 	}
 };
 
+/*modal HTML code*/
+var modal = {
+	modals: [
+	{
+		"id": "#workExperienceBtn",
+		"image": "images/profile-item1.png",
+		"title": "Work Experience",
+		"headerid": "#myModalHeader1",
+		"contentid": "#mymodal-content1"
+	},
+	{
+		"id": "#projectsBtn",
+		"image": "images/profile-item2.png",
+		"title": "Projects",
+		"headerid": "#myModalHeader2",
+		"contentid": "#mymodal-content2"
+	},
+	{
+		"id": "#educationBtn",
+		"image": "images/profile-item3.png",
+		"title": "Education",
+		"headerid": "#myModalHeader3",
+		"contentid": "#mymodal-content3"
+	}
+	],
+	"display": function() {
+
+		//display HTML structure
+		$("#modalcode").append(HTMLmodalworkExperienceStart);
+		$("#modalcode").append(HTMLmodalprojectStart);
+		$("#modalcode").append(HTMLmodaleducationStart);
+
+		for (num in modal.modals) {
+			var formattedmodalImage = HTMLmodalImage.replace("%data%",modal.modals[num].image);
+			var formattedmodalTitle = HTMLmodalTitle.replace("%data%",modal.modals[num].title);
+			$(modal.modals[num].id).append(formattedmodalImage);
+			$(modal.modals[num].id).append(formattedmodalTitle);
+		};
+
+		//display HTML markup
+		$("body").append(HTMLmodalMarkupStart1);
+		$("body").append(HTMLmodalMarkupStart2);
+		$("body").append(HTMLmodalMarkupStart3);
+
+		for (num in modal.modals) {
+			var formattedmodalMarkupTitle = HTMLmodalMarkupTitle.replace("%data%",modal.modals[num].title);
+			formattedmodalMarkupTitle = formattedmodalMarkupTitle.replace("%id%",modal.modals[num].headerid.slice(1));
+			$(modal.modals[num].headerid).append(formattedmodalMarkupTitle);
+
+			var formattedmodalMarkupBody = HTMLmodalMarkupBody.replace("%data%",modal.modals[num].id.slice(1,-3));
+			$(modal.modals[num].contentid).append(formattedmodalMarkupBody);
+			$(modal.modals[num].contentid).append(HTMLmodalMarkupFooter);
+		};
+	}
+};
+
+function addHr() {
+	$(".hr").append(HTMLaddHr);
+}
+
 navbar.display();
 bio.display();
+
+addHr();
+
+modal.display();
 education.display();
 work.display();
 projects.display();
 
 $("#main").append(internationalizeButton);
-
-
 
 $("#mapDiv").append(googleMap);
 

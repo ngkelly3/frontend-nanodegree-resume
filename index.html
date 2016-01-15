@@ -63,11 +63,13 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
     display by looking at the id or at what's written between the <h2> tags.
     -->
 
-  <!-- Bootstrap Navbar code -->
   <div class="container" id="main">
+
+    <!-- Bootstrap Navbar code -->
     <header class="row">
       <div id="navbarHTML" class="col-md-12"></div>
     </header>
+
 
     <div id="header" class="text-center">
       <ul id="topContacts" class="list-inline"></ul>
@@ -76,48 +78,19 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
     <div id="biopic" class="col-md-12"></div>
     <div style="clear: both;"></div>
 
-    <!-- horizontal rule code... can it be added using jQuery? -->
-    <div class="row">
-        <div class="col-md-12">
-          <hr>
-        </div>
-    </div>
+    <div class="row hr"></div>
 
-    <!-- modal code for main content -->
-    <section class="row text-center">
-      <div class="col-md-4 col-sm-6">
-          <img id="workExperienceBtn" src="images/profile-item1.png" alt="profile-item1" class="img-responsive center-block">
-          <h4>Work Experience</h4>
-      </div>
-      <div class="col-md-4 col-sm-6">
-          <img id="projectsBtn" src="images/profile-item2.png" alt="profile-item2" class="img-responsive center-block">
-          <h4>Projects</h4>
-        </a>
-      </div>
-      <div class="col-md-4 col-sm-6">
-          <img id="educationBtn" src="images/profile-item3.png" alt="profile-item3" class="img-responsive center-block">
-          <h4>Education</h4>
-      </div>
-    </section>
+    <!-- modal section -->
+    <section class="row text-center" id="modalcode"></section>
 
-    <!-- horizontal rule code... can it be added using jQuery? -->
-    <div class="row">
-        <div class="col-md-12">
-          <hr>
-        </div>
-    </div>
+    <div class="row hr"></div>
 
     <!-- map and footer code -->
     <div id="mapDiv" class="col-md-12">
       <h2>Where I've Lived and Worked</h2>
     </div>
 
-    <!-- horizontal rule code... can it be added using jQuery? -->
-    <div class="row">
-        <div class="col-md-12">
-          <hr>
-        </div>
-    </div>
+    <div class="row hr"></div>
 
     <!-- footer code -->
     <footer id="lets-connect" class="col-md-12 text-center">
@@ -125,52 +98,6 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
         <ul id="footerContacts" class="list-inline">
       </ul>
     </footer>
-  </div>
-
-  <!-- Modal markup. -->
-  <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h3 class="modal-title" id="myModalLabel1">Work Experience</h3>
-          </div>
-          <div id="workExperience" class="modal-body"></div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-  </div>
-
-  <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h3 class="modal-title" id="myModalLabel2">Projects</h3>
-          </div>
-          <div id="projects" class="modal-body"></div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h3 class="modal-title" id="myModalLabel3">Education</h3>
-        </div>
-        <div id="education" class="modal-body"></div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
   </div>
 
   <!--
