@@ -16,7 +16,6 @@ var bio = {
 		var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
 		var formattedBiopic = HTMLbioPic.replace("%data%",bio.biopic);
 		var formattedwelcomeMsg = HTMLwelcomeMsg.replace("%data%",bio.welcomeMessage);
-
 		//enter contact info
 		var formattedMobile = HTMLmobile.replace("%data%",bio.contacts.mobile);
 		var formattedEmail = HTMLemail.replace("%data%",bio.contacts.email);
@@ -24,7 +23,6 @@ var bio = {
 		var formattedTwitter = HTMLtwitter.replace("%data%",bio.contacts.twitter);
 		var formattedLocation = HTMLlocation.replace("%data%",bio.contacts.location);
 		var formattedContacts = formattedMobile + formattedEmail + formattedGithub + formattedTwitter + formattedLocation;
-
 		//display bio on page
 		$("#header").prepend(formattedRole);
 		$("#header").prepend(formattedName);
@@ -32,7 +30,6 @@ var bio = {
 		$("#biopic").append(formattedBiopic);
 		$("#topContacts").append(formattedContacts);
 		$("#footerContacts").append(formattedContacts);
-
 		//display skills
 		$("#skills").append(HTMLskillsStart);
 		for (skill in bio.skills) {
@@ -81,7 +78,6 @@ var education = {
 	],
 	"display": function() {
 		$("#education").append(HTMLschoolStart);
-
 		//display education
 		for (school in education.schools) {
 			var formattedschoolName = HTMLschoolName.replace("%data%",education.schools[school].name);
@@ -91,32 +87,26 @@ var education = {
 				var formattedschoolMajors = HTMLschoolMajor.replace("%data%",education.schools[school].majors[major]);
 			};
 			var formattedschoolDates = HTMLschoolDates.replace("%data%",education.schools[school].dates);
-
 			//school URLs - can we combine this into one?
 			var formattedschoolURL = HTMLonlineURL.replace("#",education.schools[school].url);
 			formattedschoolURL = formattedschoolURL.replace("%data%",education.schools[school].url);
-
 			var formattedschoolEntry = formattedschoolName + formattedschoolLocation + formattedschoolDegree + formattedschoolDates + formattedschoolMajors + formattedschoolURL;
 			$(".education-entry:last").append(formattedschoolEntry);
 		};
-
 		//display online courses
 		$(".education-entry:last").append(HTMLonlineClasses);
 		for (onlineCourse in education.onlineCourses) {
 			var formattedonlineTitle = HTMLonlineTitle.replace("%data%",education.onlineCourses[onlineCourse].title);
 			var formattedonlineSchool = HTMLonlineSchool.replace("%data%",education.onlineCourses[onlineCourse].school);
 			var formattedonlineDates = HTMLonlineDates.replace("%data%",education.onlineCourses[onlineCourse].date);
-
 			var formattedonlineURL = HTMLonlineURL.replace("%data%",education.onlineCourses[onlineCourse].url);
 			formattedonlineURL = formattedonlineURL.replace("#",education.onlineCourses[onlineCourse].url);
-
 			var formattedonlineCourse = formattedonlineTitle + formattedonlineSchool + formattedonlineDates + formattedonlineURL;
 			$(".education-entry:last").append(formattedonlineCourse);
 		};
 	}
 };
 
-//Need better work descriptions, as well as links to every job you've done
 var work = {
 	"jobs": [
 	{
@@ -137,13 +127,11 @@ var work = {
 	"display": function() {
 		for (job in work.jobs) {
 			$("#workExperience").append(HTMLworkStart);
-
 			var formattedEmployer = HTMLworkEmployer.replace("%data%",work.jobs[job].employer);
 			var formattedTitle = HTMLworkTitle.replace("%data%",work.jobs[job].title);
 			var formattedLocation = HTMLworkLocation.replace("%data%",work.jobs[job].location);
 			var formattedDates = HTMLworkDates.replace("%data%",work.jobs[job].dates);
 			var formattedDescription = HTMLworkDescription.replace("%data%",work.jobs[job].description);
-
 			var formattedEmployerTitle = formattedEmployer + formattedTitle + formattedLocation + formattedDates + formattedDescription;
 			$(".work-entry:last").append(formattedEmployerTitle);
 		}
@@ -173,7 +161,6 @@ var projects = {
 			var formattedprojectdates = HTMLprojectDates.replace("%data%",projects.projects[project].dates);
 			var formattedprojectdescription = HTMLprojectDescription.replace("%data%",projects.projects[project].description);
 			var formattedprojectimages = HTMLprojectImage.replace("%data%",projects.projects[project].images);
-
 			formattedprojectentry = formattedprojectTitle + formattedprojectdates + formattedprojectdescription + formattedprojectimages;
 			$(".project-entry:last").append(formattedprojectentry);
 		}
@@ -187,15 +174,12 @@ var navbar = {
 	"link": ["About","Blog","Contact"],
 	"display": function() {
 		$("#navbarHTML").append(HTMLnavbarStart);
-
 		//objects for the two things below
 		var formattednavbarBrand = HTMLnavbarBrand.replace("%image%",navbar.image);
 		formattednavbarBrand = formattednavbarBrand.replace("%data%",navbar.brand);
 		$(".navbar-brand").append(formattednavbarBrand);
-
 		var formattednavbarLinkActive = HTMLnavbarLinkActive.replace("%data%",navbar.linkActive);
 		$("#navbarLink").append(formattednavbarLinkActive);
-
 		for (link in navbar.link) {
 			var formattednavbarLink = HTMLnavbarLink.replace("%data%",navbar.link[link]);
 			$("#navbarLink").append(formattednavbarLink);
@@ -211,81 +195,67 @@ var modal = {
 		"image": "images/profile-item1.png",
 		"title": "Work Experience",
 		"headerid": "#myModalHeader1",
-		"contentid": "#mymodal-content1"
+		"contentid": "#mymodal-content1",
+		"modalid": "#myModal1"
 	},
 	{
 		"id": "#projectsBtn",
 		"image": "images/profile-item2.png",
 		"title": "Projects",
 		"headerid": "#myModalHeader2",
-		"contentid": "#mymodal-content2"
+		"contentid": "#mymodal-content2",
+		"modalid": "#myModal2"
 	},
 	{
 		"id": "#educationBtn",
 		"image": "images/profile-item3.png",
 		"title": "Education",
 		"headerid": "#myModalHeader3",
-		"contentid": "#mymodal-content3"
+		"contentid": "#mymodal-content3",
+		"modalid": "#myModal3"
 	}
 	],
 	"display": function() {
-
 		//display HTML structure
 		$("#modalcode").append(HTMLmodalworkExperienceStart);
 		$("#modalcode").append(HTMLmodalprojectStart);
 		$("#modalcode").append(HTMLmodaleducationStart);
-
 		for (num in modal.modals) {
 			var formattedmodalImage = HTMLmodalImage.replace("%data%",modal.modals[num].image);
 			var formattedmodalTitle = HTMLmodalTitle.replace("%data%",modal.modals[num].title);
 			$(modal.modals[num].id).append(formattedmodalImage);
 			$(modal.modals[num].id).append(formattedmodalTitle);
 		};
-
 		//display HTML markup
 		$("body").append(HTMLmodalMarkupStart1);
 		$("body").append(HTMLmodalMarkupStart2);
 		$("body").append(HTMLmodalMarkupStart3);
-
 		for (num in modal.modals) {
 			var formattedmodalMarkupTitle = HTMLmodalMarkupTitle.replace("%data%",modal.modals[num].title);
 			formattedmodalMarkupTitle = formattedmodalMarkupTitle.replace("%id%",modal.modals[num].headerid.slice(1));
 			$(modal.modals[num].headerid).append(formattedmodalMarkupTitle);
-
 			var formattedmodalMarkupBody = HTMLmodalMarkupBody.replace("%data%",modal.modals[num].id.slice(1,-3));
 			$(modal.modals[num].contentid).append(formattedmodalMarkupBody);
 			$(modal.modals[num].contentid).append(HTMLmodalMarkupFooter);
+			$(modal.modals[num].id).click(function(){
+				$(modal.modals[num].modalid).modal('show');
+			});
 		};
 	}
 };
 
-function addHr() {
-	$(".hr").append(HTMLaddHr);
-}
+var internationalize = {
+	display: function() {
+		$(".hr").append(HTMLaddHr);
+		$("#main").append(internationalizeButton);
+		$("#mapDiv").append(googleMap);
+	}
+};
 
 navbar.display();
 bio.display();
-
-addHr();
-
 modal.display();
 education.display();
 work.display();
 projects.display();
-
-$("#main").append(internationalizeButton);
-
-$("#mapDiv").append(googleMap);
-
-//Example of modal code working.  Make sure it's in the "display" object function... or wherever appropriate
-$("#workExperienceBtn").click(function(){
-	$("#myModal1").modal('show');
-});
-
-$("#projectsBtn").click(function(){
-	$("#myModal2").modal('show');
-});
-
-$("#educationBtn").click(function(){
-	$("#myModal3").modal('show');
-});
+internationalize.display();

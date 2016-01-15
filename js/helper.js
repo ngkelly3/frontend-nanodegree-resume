@@ -86,7 +86,6 @@ var HTMLmodalMarkupFooter = '<div class="modal-footer"><button type="button" cla
 //horizontal rule code
 var HTMLaddHr = '<div class="col-md-12"><hr></div>'
 
-
 var internationalizeButton = '<button>Internationalize</button>';
 var googleMap = '<div id="map"></div>';
 
