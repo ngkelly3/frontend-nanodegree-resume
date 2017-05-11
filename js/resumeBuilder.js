@@ -1,15 +1,15 @@
 var bio = {
     "name": "Kelly Ng",
-    "role": "Web Developer",
+    "role": "3rd Year Computer Science Student",
     "contacts": {
         "mobile": "587-225-0076",
-        "email": "kellyng87@gmail.com",
+        "email": "ngkelly3@gmail.com",
         "github": "ngkelly3",
         "twitter": "@thisiskellywing",
         "location": "Calgary"
     },
     "welcomeMessage": "Welcome to my website!  Enjoy your stay.",
-    "skills": ["HTML", "CSS", "Javascript", "Octave", "Matlab"],
+    "skills": ["Java", "HTML", "CSS", "Javascript"],
     "biopic": "images/cute-cat.jpg"
 };
 
@@ -125,7 +125,7 @@ var work = {
         "title": "Operations Engineer",
         "location": "Waterton",
         "dates": "October 2011 - July 2014",
-        "description": "Even though I studied to be a mechanical engineer, I was hired as a process engineer (as you do).  On the first day of work, I made it very clear to my superiors that I was an inferior candidate for the position.  My superiors told me that they simply needed a bum in the seat.  So that's what I was: a mechanical engineer faking his way as a process engineer.  It worked out well, but by the end of this position, I began to question how I could contribute to the world more effectively by leveraging my strengths (whatever they were)."
+        "description": "Even though I studied to be a mechanical engineer, I was hired as a process engineer (of course!).  On the first day of work, I made it very clear to my superiors that I was an inferior candidate for the position.  My superiors told me that they simply needed a bum in the seat.  So that's what I was: a mechanical engineer faking his way as a process engineer.  It worked out well, but by the end of this position, I began to question how I could contribute to the world more effectively by leveraging my strengths (whatever they were)."
     }]
 };
 
@@ -146,15 +146,17 @@ work.display = function() {
 
 var projects = {
     "projects": [{
-        "title": "Project P1/P2 - Online Resume (Udacity)",
-        "dates": "November 2015/January 2016",
-        "description": "Built a simple online resume using HTML, CSS and JS and powered by the Bootstrap framework.",
-        "images": "images/proj-item1.png"
+        "title": "Neighbourhood Map - Coffee Shops in Steveston, BC",
+        "dates": "March 2016",
+        "description": "Built a web application that displays coffee shop information on Google Maps via FourSquare data.",
+        "images": "images/proj-item1.png",
+        "url": "https://ngkelly3.github.io/Project_P5_Neighborhood_Map/"
     }, {
-        "title": "Home Automation System",
-        "dates": "January 2016 - Present",
-        "description": "Inspired by Mark Zuckerberg's AI challenge for 2016, I hope to create a simple AI system at home that can respond to voice commands to control things like music, lights and temperature (goals subject to change).",
-        "images": "images/proj-item2.png"
+        "title": "Frogger JavaScript",
+        "dates": "February 2016",
+        "description": "Created a custom frogger-style videogame using pre-existing artwork in order to learn object-oriented design in JavaScript.",
+        "images": "images/proj-item2.png",
+        "url": "https://ngkelly3.github.io/Frogger/"
     }]
 };
 
@@ -166,7 +168,9 @@ projects.display = function() {
             var formattedprojectdates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
             var formattedprojectdescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
             var formattedprojectimages = HTMLprojectImage.replace("%data%", projects.projects[project].images);
-            formattedprojectentry = formattedprojectTitle + formattedprojectdates + formattedprojectdescription + formattedprojectimages;
+            var formattedprojectURL = HTMLonlineURL.replace("%data%", projects.projects[project].url);
+            formattedprojectURL = formattedprojectURL.replace("#", projects.projects[project].url);
+            formattedprojectentry = formattedprojectTitle + formattedprojectdates + formattedprojectURL+ formattedprojectdescription + formattedprojectimages;
             $(".project-entry:last").append(formattedprojectentry);
         }
     }
@@ -176,7 +180,7 @@ var navbar = {
     "image": "images/favicon-inverted.ico",
     "brand": "Kelly's Website",
     "linkActive": "Home",
-    "link": ["About", "Blog", "Contact"]
+    "link": []
 };
 
 navbar.display = function() {
