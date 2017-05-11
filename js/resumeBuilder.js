@@ -46,8 +46,15 @@ var education = {
     "schools": [{
         "name": "University of British Columbia",
         "location": "Vancouver",
+        "degree": "Bachelor of Computer Science",
+        "majors": ["Computer Science"],
+        "dates": "September 2016 - May 2019",
+        "url": "https://www.cs.ubc.ca/students/undergrad/programs/second-degree"
+    }, {
+        "name": "University of British Columbia",
+        "location": "Vancouver",
         "degree": "Bachelor of Applied Science",
-        "majors": ["Mechanical Engineering"],
+        "majors": ["Mechanical Engineering, Minor in Commerce"],
         "dates": "September 2005 - May 2010",
         "url": "http://you.ubc.ca/ubc_programs/mechanical-engineering-vancouver/"
     }],
